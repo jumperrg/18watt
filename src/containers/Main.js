@@ -14,6 +14,7 @@ import Agb from "../pages/agb/Agb.js";
 import Impressum from "../pages/impressum/Impressum.js";
 import Links from "../pages/links/Links.js";
 import Datenschutz from "../pages/datenschutz/datenschutz.js";
+import PushLightStudio from "../pages/pushLightStudio/PushLightStudio.js";
 
 export default class Main extends Component {
   render() {
@@ -96,6 +97,18 @@ export default class Main extends Component {
           <Route
             path="/links-art"
             render={(props) => <Links {...props} theme={this.props.theme} />}
+          />
+
+          <Route
+            path="/push-light-studio"
+            render={(props) => (
+              <PushLightStudio 
+                {...props} 
+                theme={this.props.theme}
+                url="/pushLightStudio/index.html"
+                title="Push Light Studio"
+              />
+            )}
           />
 
           <Route
