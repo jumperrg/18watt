@@ -80,7 +80,7 @@ class Header extends Component {
                   Services
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/18watt"
                   tag={Link}
@@ -91,7 +91,7 @@ class Header extends Component {
                 >
                   18 Watt
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/contact"
@@ -101,7 +101,7 @@ class Header extends Component {
                   onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                   onMouseOut={(event) => onMouseOut(event)}
                 >
-                  Contact Me
+                  Contact
                 </NavLink>
               </li>
             </ul>

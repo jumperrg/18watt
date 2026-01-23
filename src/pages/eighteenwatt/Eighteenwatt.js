@@ -20,7 +20,7 @@ class Eighteenwatt extends Component {
       <div className="projects-main">
         <Header theme={theme} />
         <div className="basic-projects">
-          <Fade bottom duration={2000} distance="40px">
+          <Fade  duration={800}>
             <div className="projects-heading-div">
               <div className="projects-heading-img-div">
                 {/* <ProjectsImg theme={theme} /> */}

@@ -1,116 +1,39 @@
 {
   "data": [
     {
-      "id": "R_kgDOJWL0-g",
-      "name": "Arduino development",
+      "id": "R_kgDOJWL0-ds",
+      "name": "WEB development",
       "createdAt": "2023-04-13T04:18:19Z",
       "url": "https://github.com/...",
-      "description": "I will make an arduino ESP32 project from your idea",
+      "description": "Web full-stack development using modern technologies to create responsive and user-friendly web applications.",
       "isFork": false,
-      "languages": [
-        {
-          "name": "arduino",
-          "iconifyClass": "logos-arduino"
-        },
-        {          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
-      ]
-    },
-    {
-      "id": "R_kgDOG_vYHA",
-      "name": "WEB UI Design",
-      "createdAt": "2022-03-13T20:41:33Z",
+      "languages": [      ]
+    },{
+      "id": "R_kgDOJWL0-g",
+      "name": "IOT development",
+      "createdAt": "2023-04-13T04:18:19Z",
       "url": "https://github.com/...",
-      "description": "I will make a WEB UI for your ESP32 project",
+      "description": "IoT and MVP development using microcontrollers (Arduino, ESP32), from idea to working prototype or production-ready design.",
       "isFork": false,
-      "languages": [
-        {
-          "name": "Javascript",
-          "iconifyClass": "logos-javascript"
-        },
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        }
-      ]
+      "languages": [      ]
     },
     {
       "id": "MDEwOlJlcG9zaXRvcnkzMjU5NDM1MTE=",
-      "name": "LVGL UI development",
+      "name": "UI development",
       "createdAt": "2021-01-01T08:31:51Z",
-      "url": "https://github.com/ashutosh1919/react-liquidswipe",
-      "description": "I will make a UI for your ESP32 display module using LVGL",
+      "url": "https://github.com/sera/react-liquidswipe",
+      "description": "UI/UX design and web development for both desktop and small display devices.",
       "isFork": false,
-      "languages": [
-        {
-          "name": "LVGL",
-          "iconifyClass": "logos-LVGL"
-        }
-      ]
+      "languages": [      ]
     },
     {
       "id": "R_kgDOG0_8uQ",
       "name": "Consulting",
       "createdAt": "2022-02-11T14:50:20Z",
-      "url": "https://github.com/ashutosh1919/react-awesome-shapes",
-      "description": "Book an online meeting with me, where we resolve your project issues. I’ll guide you on how to organize your project for solid progress, and assist in choosing electronic components, parts, tools, libraries, and more.",
+      "url": "https://github.com/sera/react-awesome-shapes",
+      "description": "Book an online meeting with me, where we resolve your project issues. I’ll guide you on how to organize your project for solid progress, and assist in choosing components, parts, tools, libraries, and more.",
       "isFork": false,
-      "languages": [
-        {
-          "name": "arduino",
-          "iconifyClass": "logos-arduino"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
-      ]
-    },
-    {
-      "id": "R_kgDOG0_83Q",
-      "name": "MVP Development",
-      "createdAt": "2022-02-11T14:50:20Z",
-      "url": "https://github.com/ashutosh1919/react-awesome-shapes",
-      "description": "I will turn your idea into a functional MVP. I’ll analyze possible challenges and suggest efficient and practical solutions.",
-      "isFork": false,
-      "languages": [
-        {
-          "name": "arduino",
-          "iconifyClass": "logos-arduino"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        },
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        },
-        {          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
-      ]
-    },
-    {
-      "id": "R_kgDOG0_8uQ",
-      "name": "Device modifications",
-      "createdAt": "2022-02-11T14:50:20Z",
-      "url": "https://github.com/ashutosh1919/react-awesome-shapes",
-      "description": "Take a look at the list of device mods I provide",
-      "isFork": false,
-      "languages": [
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
-      ]
+      "languages": [      ]
     }
   ]
 }

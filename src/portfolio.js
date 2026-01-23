@@ -31,13 +31,12 @@ const greeting = {
 
 const socialMediaLinks = [
   /* Your Social Media Link */
+  /* Your Social Media Link */
   // github: "https://github.com/jsonslim",
-  // linkedin: "https://www.linkedin.com/in/ashutosh-hathidara-88710b138/",
-  // gmail: "ashutoshhathidara98@gmail.com",
-  // gitlab: "https://gitlab.com/ashutoshhathidara98",
-  // facebook: "https://www.facebook.com/laymanbrother.19/",
-  // twitter: "https://twitter.com/ashutosh_1919",
-  // instagram: "https://www.instagram.com/layman_brother/"
+  // linkedin: "https://www.linkedin.com/in/sergeynodejs/",
+  // gmail: "sergey.nodejs@gmail.com",
+  // twitter: "https://x.com/SergeyT97338003",
+  // instagram: "https://www.instagram.com/18watt"
 
   {
     name: "Github",
@@ -85,6 +84,57 @@ const socialMediaLinks = [
 
 const skills = {
   data: [
+    {
+      title: "Full Stack Development",
+      fileName: "FullStackImg",
+      skills: [
+        "⚡ Building Front-End using React, NextJS",
+        "⚡ Developing Back-End using Nodejs, Python, Java",
+        "⚡ Deploying full stack applications using Cloud Services",
+      ],
+      softwareSkills: [
+        {
+          skillName: "HTML5",
+          fontAwesomeClassname: "simple-icons:html5",
+          style: {
+            color: "#E34F26",
+          },
+        },
+        {
+          skillName: "CSS3",
+          fontAwesomeClassname: "fa-css3",
+          style: {
+            color: "#1572B6",
+          },
+        },
+        {
+          skillName: "JavaScript",
+          fontAwesomeClassname: "simple-icons:javascript",
+          style: {
+            backgroundColor: "#000000",
+            color: "#F7DF1E",
+          },
+        },
+        {
+          skillName: "ReactJS",
+          fontAwesomeClassname: "simple-icons:react",
+          style: {
+            color: "#61DAFB",
+          },
+        },
+        {
+          skillName: "NodeJS",
+          fontAwesomeClassname: "devicon-plain:nodejs-wordmark",
+          style: {
+            color: "#339933",
+          },
+        },
+        {
+          skillName: "FastApi",
+          imageSrc: "fastApi_logo.png",
+        },
+      ],
+    },
     {
       title: "Hardware development",
       fileName: "DataScienceImg",
@@ -139,57 +189,6 @@ const skills = {
       ],
     },
     {
-      title: "Full Stack Development",
-      fileName: "FullStackImg",
-      skills: [
-        "⚡ Building responsive website front end using React-Redux",
-        "⚡ Developing mobile applications using Flutter, React Native and solo android apps using Kotlin",
-        "⚡ Creating application backend in Node, Express & Flask",
-      ],
-      softwareSkills: [
-        {
-          skillName: "HTML5",
-          fontAwesomeClassname: "simple-icons:html5",
-          style: {
-            color: "#E34F26",
-          },
-        },
-        {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
-          style: {
-            color: "#1572B6",
-          },
-        },
-        {
-          skillName: "JavaScript",
-          fontAwesomeClassname: "simple-icons:javascript",
-          style: {
-            backgroundColor: "#000000",
-            color: "#F7DF1E",
-          },
-        },
-        {
-          skillName: "ReactJS",
-          fontAwesomeClassname: "simple-icons:react",
-          style: {
-            color: "#61DAFB",
-          },
-        },
-        {
-          skillName: "NodeJS",
-          fontAwesomeClassname: "devicon-plain:nodejs-wordmark",
-          style: {
-            color: "#339933",
-          },
-        },
-        {
-          skillName: "FastApi",
-          imageSrc: "fastApi_logo.png",
-        },
-      ],
-    },
-    {
       title: "UI/UX Design",
       fileName: "DesignImg",
       skills: [
@@ -230,7 +229,7 @@ const competitiveSites = {
       style: {
         color: "#F79F1B",
       },
-      profileLink: "https://leetcode.com/layman_brother/",
+      profileLink: "",
     },
     {
       siteName: "HackerRank",
@@ -238,7 +237,7 @@ const competitiveSites = {
       style: {
         color: "#2EC866",
       },
-      profileLink: "https://www.hackerrank.com/layman_brother",
+      profileLink: "",
     },
     {
       siteName: "Codechef",
@@ -246,7 +245,7 @@ const competitiveSites = {
       style: {
         color: "#5B4638",
       },
-      profileLink: "https://www.codechef.com/users/ashutosh_1919",
+      profileLink: "",
     },
     {
       siteName: "Codeforces",
@@ -254,7 +253,7 @@ const competitiveSites = {
       style: {
         color: "#1F8ACB",
       },
-      profileLink: "http://codeforces.com/profile/layman_brother",
+      profileLink: "",
     },
     {
       siteName: "Hackerearth",
@@ -262,7 +261,7 @@ const competitiveSites = {
       style: {
         color: "#323754",
       },
-      profileLink: "https://www.hackerearth.com/@ashutosh391",
+      profileLink: "",
     },
     {
       siteName: "Kaggle",
@@ -270,7 +269,7 @@ const competitiveSites = {
       style: {
         color: "#20BEFF",
       },
-      profileLink: "https://www.kaggle.com/laymanbrother",
+      profileLink: "",
     },
   ],
 };
@@ -607,7 +606,8 @@ const publications = {
       id: "unihiker",
       name: "Shape your Unihiker ",
       createdAt: "2023-09-19T00:00:00Z",
-      description: "A maker challenge from DF Robot in which I designed a nice enclosure for the Unihiker computer",
+      description:
+        "A maker challenge from DF Robot in which I designed a nice enclosure for the Unihiker computer",
       url: "https://community.dfrobot.com/makelog-315063.html",
     },
     {
@@ -623,8 +623,7 @@ const publications = {
 // Services Page
 const servicesHeader = {
   title: "Services",
-  description:
-    "I turn electronics ideas into real, working products — for individuals, startups, and businesses.",
+  description: "Turn your ideas into working products.",
   avatar_image_path: "projects_image.svg",
 };
 
@@ -648,7 +647,7 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "I like to document some of my experiences in professional career journey as well as some technical knowledge sharing.",
-    link: "https://blogs.ashutoshhathidara.com/",
+    link: "",
     avatar_image_path: "blogs_image.svg",
   },
   addressSection: {
