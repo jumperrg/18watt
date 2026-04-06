@@ -4,18 +4,19 @@
       "id": "R_kgDOJWL0-ds",
       "name": "WEB development",
       "createdAt": "2023-04-13T04:18:19Z",
-      "url": "https://github.com/...",
+      "url": "https://github.com/jumperrg",
       "description": "Web full-stack development using modern technologies to create responsive and user-friendly web applications.",
       "isFork": false,
-      "languages": [      ]
-    },{
+      "languages": []
+    },
+    {
       "id": "R_kgDOJWL0-g",
       "name": "IOT development",
       "createdAt": "2023-04-13T04:18:19Z",
-      "url": "https://github.com/...",
+      "url": "https://github.com/jumperrg",
       "description": "IoT and MVP development using microcontrollers (Arduino, ESP32), from idea to working prototype or production-ready design.",
       "isFork": false,
-      "languages": [      ]
+      "languages": []
     },
     {
       "id": "MDEwOlJlcG9zaXRvcnkzMjU5NDM1MTE=",
@@ -24,7 +25,7 @@
       "url": "https://github.com/sera/react-liquidswipe",
       "description": "UI/UX design and web development for both desktop and small display devices.",
       "isFork": false,
-      "languages": [      ]
+      "languages": []
     },
     {
       "id": "R_kgDOG0_8uQ",
@@ -33,7 +34,7 @@
       "url": "https://github.com/sera/react-awesome-shapes",
       "description": "Book an online meeting with me, where we resolve your project issues. I’ll guide you on how to organize your project for solid progress, and assist in choosing components, parts, tools, libraries, and more.",
       "isFork": false,
-      "languages": [      ]
+      "languages": []
     }
   ]
 }

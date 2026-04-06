@@ -4,11 +4,11 @@
       "id": "R_kgDOJWL0-g",
       "name": "Smart doorbell",
       "createdAt": "2023-04-13T04:18:19Z",
-      "url": "https://github.com/...",
+      "url": "https://github.com/jumperrg/smart_doorbell",
       "description": "Wifi + Ethernet + Camera doorbell automated with Telegram",
       "isFork": false,
       "languages": [
-        {          
+        {
           "name": "C++",
           "iconifyClass": "logos-c"
         }
@@ -18,16 +18,15 @@
       "id": "R_kgDOG_vYHA",
       "name": "Payment terminal for bitcoin transactions",
       "createdAt": "2022-03-13T20:41:33Z",
-      "url": "https://github.com/...",
+      "url": "https://github.com/jumperrg/TPOS_LNBits",
       "description": "ESP32 based TPOS device to help small bussinesses take payments",
       "isFork": false,
       "languages": [
         {
-          "name": "Python",
+          "name": "JavaScript",
           "iconifyClass": "logos-javascript"
         },
         {
-          
           "name": "C++",
           "iconifyClass": "logos-c"
         }
@@ -37,7 +36,7 @@
       "id": "MDEwOlJlcG9zaXRvcnkyNDU0NjcyNzQ=",
       "name": "Spray paint printer",
       "createdAt": "2020-03-06T16:26:54Z",
-      "url": "https://github.com/...",
+      "url": "https://github.com/jumperrg",
       "description": " Automated device allowing painting graffiti from images",
       "isFork": false,
       "languages": [
@@ -49,7 +48,7 @@
           "name": "JavaScript",
           "iconifyClass": "logos-javascript"
         },
-        {          
+        {
           "name": "C++",
           "iconifyClass": "logos-c"
         }
@@ -59,7 +58,7 @@
       "id": "R_kgDOG0_8uQ",
       "name": "Ableton Push Light Studio",
       "createdAt": "2022-02-11T14:50:20Z",
-      "url": "https://github.com/jsonslim/Push-light-studio",
+      "url": "https://github.com/jumperrg/Push-light-studio",
       "description": "Online editor for building midi sequences for lightshow on Ableton Push",
       "isFork": false,
       "languages": [
@@ -77,7 +76,7 @@
       "id": "R_kgDOGcPKSQ",
       "name": "VR Ambilight",
       "createdAt": "2021-11-26T17:56:07Z",
-      "url": "https://github.com/jsonslim/VR-ambilight",
+      "url": "https://github.com/jumperrg/VR-ambilight",
       "description": "A solution for Pico 4 HMD that enhanses comfort and increases immersion",
       "isFork": false,
       "languages": [
@@ -85,7 +84,7 @@
           "name": "JavaScript",
           "iconifyClass": "logos-javascript"
         },
-        {          
+        {
           "name": "C++",
           "iconifyClass": "logos-c"
         }
@@ -95,7 +94,7 @@
       "id": "MDEwOlJlcG9zaXRvcnkzMjU5NDM1MTE=",
       "name": "Whammy Maximizer",
       "createdAt": "2021-01-01T08:31:51Z",
-      "url": "https://github.com/jsonslim/Whammy-Maximizer",
+      "url": "https://github.com/jumperrg/Whammy-Maximizer",
       "description": "A Max for life plugin automating the guitar pedal Digitech Whammy",
       "isFork": false,
       "languages": [
