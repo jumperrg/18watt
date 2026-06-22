@@ -10,6 +10,12 @@ function App() {
     <ThemeProvider theme={chosenTheme}>
       <>
         <GlobalStyles />
+        <div className="camera-marks">
+          <span className="cm cm-tl" />
+          <span className="cm cm-tr" />
+          <span className="cm cm-bl" />
+          <span className="cm cm-br" />
+        </div>
         <div>
           <Main theme={chosenTheme} />
         </div>

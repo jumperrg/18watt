@@ -1,39 +1,48 @@
 {
   "data": [
     {
-      "id": "R_kgDOJWL0-ds",
-      "name": "WEB development",
-      "createdAt": "2023-04-13T04:18:19Z",
-      "url": "https://github.com/...",
-      "description": "Web full-stack development using modern technologies to create responsive and user-friendly web applications.",
-      "isFork": false,
-      "languages": [      ]
-    },{
-      "id": "R_kgDOJWL0-g",
-      "name": "IOT development",
-      "createdAt": "2023-04-13T04:18:19Z",
-      "url": "https://github.com/...",
-      "description": "IoT and MVP development using microcontrollers (Arduino, ESP32), from idea to working prototype or production-ready design.",
-      "isFork": false,
-      "languages": [      ]
+      "id": "svc-web",
+      "name": "Web Development",
+      "icon": "💻",
+      "description": "Full-stack web applications built with modern technologies — fast, responsive, and production-ready.",
+      "bullets": [
+        "React / Next.js frontends",
+        "Node.js or Python backends",
+        "Cloud deployment & CI/CD"
+      ]
     },
     {
-      "id": "MDEwOlJlcG9zaXRvcnkzMjU5NDM1MTE=",
-      "name": "UI development",
-      "createdAt": "2021-01-01T08:31:51Z",
-      "url": "https://github.com/sera/react-liquidswipe",
-      "description": "UI/UX design and web development for both desktop and small display devices.",
-      "isFork": false,
-      "languages": [      ]
+      "id": "svc-iot",
+      "name": "IoT & Embedded Systems",
+      "icon": "🔌",
+      "description": "From idea to working prototype — firmware, PCB design, and end-to-end IoT pipelines.",
+      "bullets": [
+        "ESP32 / Arduino firmware",
+        "Schematic & PCB design (KiCad)",
+        "MQTT, BLE, WiFi integration"
+      ]
     },
     {
-      "id": "R_kgDOG0_8uQ",
-      "name": "Consulting",
-      "createdAt": "2022-02-11T14:50:20Z",
-      "url": "https://github.com/sera/react-awesome-shapes",
-      "description": "Book an online meeting with me, where we resolve your project issues. I’ll guide you on how to organize your project for solid progress, and assist in choosing components, parts, tools, libraries, and more.",
-      "isFork": false,
-      "languages": [      ]
+      "id": "svc-ui",
+      "name": "UI/UX Design",
+      "icon": "🎨",
+      "description": "Interfaces that work on both large screens and tiny embedded displays — designed in Figma, built in code.",
+      "bullets": [
+        "Figma prototyping & design systems",
+        "LVGL for embedded displays",
+        "Responsive web UI implementation"
+      ]
+    },
+    {
+      "id": "svc-consulting",
+      "name": "Technical Consulting",
+      "icon": "🧠",
+      "description": "Stuck on architecture, hardware selection, or tooling? Book a focused session and leave with a clear path forward.",
+      "bullets": [
+        "Project architecture review",
+        "Component & library selection",
+        "Code review & debugging sessions"
+      ]
     }
   ]
 }

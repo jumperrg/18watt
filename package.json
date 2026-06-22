@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "homepage": "https://18watt.de/",
   "scripts": {
+    "dev": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

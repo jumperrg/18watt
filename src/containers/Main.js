@@ -102,8 +102,8 @@ export default class Main extends Component {
           <Route
             path="/push-light-studio"
             render={(props) => (
-              <PushLightStudio 
-                {...props} 
+              <PushLightStudio
+                {...props}
                 theme={this.props.theme}
                 url="/pushLightStudio/index.html"
                 title="Push Light Studio"

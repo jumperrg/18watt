@@ -2,107 +2,85 @@
   "data": [
     {
       "id": "R_kgDOJWL0-g",
-      "name": "Smart doorbell",
-      "createdAt": "2023-04-13T04:18:19Z",
+      "name": "Smart Doorbell",
+      "category": "Hardware",
+      "status": "Shipped",
+      "createdAt": "2023-04-13T00:00:00Z",
       "url": "https://github.com/...",
-      "description": "Wifi + Ethernet + Camera doorbell automated with Telegram",
-      "isFork": false,
+      "description": "Wifi + Ethernet + Camera doorbell automated with Telegram. Built around ESP32-CAM with live RTSP stream and motion-triggered notifications.",
+      "image": "",
       "languages": [
-        {          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
+        { "name": "C++", "iconifyClass": "logos-c" }
       ]
     },
     {
       "id": "R_kgDOG_vYHA",
-      "name": "Payment terminal for bitcoin transactions",
-      "createdAt": "2022-03-13T20:41:33Z",
+      "name": "Bitcoin Payment Terminal",
+      "category": "Hardware",
+      "status": "Shipped",
+      "createdAt": "2022-03-13T00:00:00Z",
       "url": "https://github.com/...",
-      "description": "ESP32 based TPOS device to help small bussinesses take payments",
-      "isFork": false,
+      "description": "ESP32 based TPOS device helping small businesses accept Bitcoin payments over Lightning Network.",
+      "image": "",
       "languages": [
-        {
-          "name": "Python",
-          "iconifyClass": "logos-javascript"
-        },
-        {
-          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
+        { "name": "Python", "iconifyClass": "logos-python" },
+        { "name": "C++", "iconifyClass": "logos-c" }
       ]
     },
     {
       "id": "MDEwOlJlcG9zaXRvcnkyNDU0NjcyNzQ=",
-      "name": "Spray paint printer",
-      "createdAt": "2020-03-06T16:26:54Z",
+      "name": "Spray Paint Printer",
+      "category": "Hardware",
+      "status": "Experiment",
+      "createdAt": "2020-03-06T00:00:00Z",
       "url": "https://github.com/...",
-      "description": " Automated device allowing painting graffiti from images",
-      "isFork": false,
+      "description": "Automated device for painting graffiti from digital images. CNC-controlled spray paint system with a React-based image editor.",
+      "image": "",
       "languages": [
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        },
-        {          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
+        { "name": "React", "iconifyClass": "logos-react" },
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" },
+        { "name": "C++", "iconifyClass": "logos-c" }
       ]
     },
     {
       "id": "R_kgDOG0_8uQ",
       "name": "Ableton Push Light Studio",
-      "createdAt": "2022-02-11T14:50:20Z",
+      "category": "Software",
+      "status": "Shipped",
+      "createdAt": "2022-02-11T00:00:00Z",
       "url": "https://github.com/jsonslim/Push-light-studio",
-      "description": "Online editor for building midi sequences for lightshow on Ableton Push",
-      "isFork": false,
+      "description": "Online editor for building MIDI sequences that drive lightshows on Ableton Push controllers.",
+      "image": "",
       "languages": [
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
+        { "name": "React", "iconifyClass": "logos-react" },
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" }
       ]
     },
     {
       "id": "R_kgDOGcPKSQ",
       "name": "VR Ambilight",
-      "createdAt": "2021-11-26T17:56:07Z",
+      "category": "Hardware",
+      "status": "Experiment",
+      "createdAt": "2021-11-26T00:00:00Z",
       "url": "https://github.com/jsonslim/VR-ambilight",
-      "description": "A solution for Pico 4 HMD that enhanses comfort and increases immersion",
-      "isFork": false,
+      "description": "Peripheral LED system for Pico 4 HMD that enhances presence and reduces eye strain in VR sessions.",
+      "image": "",
       "languages": [
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        },
-        {          
-          "name": "C++",
-          "iconifyClass": "logos-c"
-        }
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" },
+        { "name": "C++", "iconifyClass": "logos-c" }
       ]
     },
     {
       "id": "MDEwOlJlcG9zaXRvcnkzMjU5NDM1MTE=",
       "name": "Whammy Maximizer",
-      "createdAt": "2021-01-01T08:31:51Z",
+      "category": "Software",
+      "status": "Shipped",
+      "createdAt": "2021-01-01T00:00:00Z",
       "url": "https://github.com/jsonslim/Whammy-Maximizer",
-      "description": "A Max for life plugin automating the guitar pedal Digitech Whammy",
-      "isFork": false,
+      "description": "Max for Live plugin automating pitch-shift sequences on the Digitech Whammy pedal via MIDI.",
+      "image": "",
       "languages": [
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" }
       ]
     }
   ]
