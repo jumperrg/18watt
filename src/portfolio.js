@@ -22,7 +22,8 @@ const greeting = {
   title: "18 Watt",
   logo_name: "18 Watt",
   nickname: "",
-  subTitle: "A tech agency and development studio building software, hardware, and everything in between.",
+  subTitle:
+    "A tech agency and development studio building software, hardware, and everything in between.",
   resumeLink:
     "https://drive.google.com/file/d/1rHltg59ofjR62RYwYQFx8gK_Xh8jAiJS/view?usp=drive_link",
   portfolio_repository: "https://github.com/jsonslim?tab=repositories",
@@ -39,10 +40,16 @@ const socialMediaLinks = [
   // instagram: "https://www.instagram.com/18watt"
 
   {
-    name: "Github",
-    link: "https://github.com/jsonslim",
-    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
-    backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
+    name: "YouTube",
+    link: "https://www.youtube.com/@GoodVibeSolutions",
+    fontAwesomeIcon: "fa-youtube", // Reference https://fontawesome.com/icons/youtube?style=brands
+    backgroundColor: "#FF0000", // Reference https://simpleicons.org/?q=youtube
+  },
+  {
+    name: "Instagram",
+    link: "https://www.instagram.com/18watt",
+    fontAwesomeIcon: "fa-instagram", // Reference https://fontawesome.com/icons/instagram?style=brands
+    backgroundColor: "#E4405F", // Reference https://simpleicons.org/?q=instagram
   },
   {
     name: "LinkedIn",
@@ -51,29 +58,23 @@ const socialMediaLinks = [
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
   },
   {
-    name: "YouTube",
-    link: "https://www.youtube.com/@GoodVibeSolutions",
-    fontAwesomeIcon: "fa-youtube", // Reference https://fontawesome.com/icons/youtube?style=brands
-    backgroundColor: "#FF0000", // Reference https://simpleicons.org/?q=youtube
+    name: "Github",
+    link: "https://github.com/jsonslim",
+    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
+    backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
-  {
-    name: "Gmail",
-    link: "mailto:sergey.nodejs@gmail.com",
-    fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
-    backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
-  },
-  {
-    name: "X-Twitter",
-    link: "https://x.com/SergeyT97338003",
-    fontAwesomeIcon: "fa-x-twitter", // Reference https://fontawesome.com/icons/x-twitter?f=brands&s=solid
-    backgroundColor: "#000000", // Reference https://simpleicons.org/?q=x
-  },
-  {
-    name: "Instagram",
-    link: "https://www.instagram.com/18watt",
-    fontAwesomeIcon: "fa-instagram", // Reference https://fontawesome.com/icons/instagram?style=brands
-    backgroundColor: "#E4405F", // Reference https://simpleicons.org/?q=instagram
-  },
+  // {
+  //   name: "Gmail",
+  //   link: "mailto:sergey.nodejs@gmail.com",
+  //   fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
+  //   backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
+  // },
+  // {
+  //   name: "X-Twitter",
+  //   link: "https://x.com/SergeyT97338003",
+  //   fontAwesomeIcon: "fa-x-twitter", // Reference https://fontawesome.com/icons/x-twitter?f=brands&s=solid
+  //   backgroundColor: "#000000", // Reference https://simpleicons.org/?q=x
+  // },
 ];
 
 const skills = {
@@ -128,7 +129,8 @@ const skills = {
           imageSrc: "fastApi_logo.png",
         },
       ],
-    }, ,
+    },
+    
     {
       title: "UI/UX Design",
       fileName: "DesignImg",
@@ -210,7 +212,7 @@ const skills = {
           imageSrc: "KiCad_logo.png",
         },
       ],
-    }
+    },
   ],
 };
 
@@ -617,7 +619,8 @@ const publications = {
 // Services Page
 const servicesHeader = {
   title: "Services",
-  description: "Turn your ideas into working products. Whether it's a web app, an IoT prototype, or a consulting session — here's how I can help.",
+  description:
+    "Turn your ideas into working products. Whether it's a web app, an IoT prototype, or a consulting session — here's how I can help.",
   avatar_image_path: "projects_image.svg",
 };
 

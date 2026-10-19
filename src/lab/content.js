@@ -1,0 +1,212 @@
+/*
+ * 18WATT LAB — content index.
+ * Everything the site shows lives here. To publish something new, add an
+ * entry to `projects` or `notes`; the home page, index pages and detail
+ * pages pick it up automatically (newest first by `date`).
+ *
+ * Images: drop files into /public/lab/<slug>/ and reference them as
+ *   cover: "/lab/<slug>/cover.jpg"
+ * Leave `cover` empty and a generated technical placeholder is drawn.
+ *
+ * Video: `youtube` takes a YouTube video id (the part after watch?v=).
+ */
+
+export const lab = {
+  name: "18WATT",
+  tagline: "Independent hardware lab",
+  statement:
+    "A personal technical lab at the intersection of electronics, code, music and experimental design. Real devices, built on the bench, documented here.",
+  author: "Sergey Tarasov",
+  email: "sergey.nodejs@gmail.com",
+  disciplines: ["Electronics", "Firmware", "Music tech", "Interfaces"],
+};
+
+export const channels = [
+  {
+    id: "youtube",
+    name: "YouTube",
+    handle: "@GoodVibeSolutions",
+    url: "https://www.youtube.com/@GoodVibeSolutions",
+    role: "Full demos, builds and walkthroughs",
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    handle: "@18watt",
+    url: "https://www.instagram.com/18watt",
+    role: "Short clips from the bench",
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    handle: "jsonslim",
+    url: "https://github.com/jsonslim",
+    role: "Source, firmware, schematics",
+  },
+];
+
+// Status vocabulary — keep to these so the labels stay consistent.
+export const STATUS = {
+  PROTOTYPE: "Prototype",
+  EXPERIMENT: "Experiment",
+  OPEN_SOURCE: "Open source",
+  SHIPPED: "Shipped",
+  IN_PROGRESS: "In progress",
+};
+
+export const projects = [
+  {
+    slug: "whammy-maximizer",
+    title: "Whammy Maximizer",
+    date: "2021-01",
+    status: [STATUS.OPEN_SOURCE],
+    tags: ["MIDI", "Max for Live", "Guitar FX"],
+    summary:
+      "Max for Live device that sequences pitch-shift automation on a Digitech Whammy pedal over MIDI.",
+    body: [
+      "The Whammy is played with a foot. This device lets Ableton play it instead: pitch sweeps and mode changes are written as clips and sent to the pedal as MIDI, locked to the session tempo.",
+    ],
+    specs: { Host: "Ableton Live / Max for Live", Protocol: "MIDI", Target: "Digitech Whammy" },
+    links: { repo: "https://github.com/jsonslim/Whammy-Maximizer" },
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "push-light-studio",
+    title: "Push Light Studio",
+    date: "2022-02",
+    status: [STATUS.OPEN_SOURCE, STATUS.SHIPPED],
+    tags: ["MIDI", "Web", "Ableton Push"],
+    summary:
+      "Browser editor for building MIDI sequences that drive light shows on the Ableton Push pad grid.",
+    body: [
+      "Draw frames on a virtual pad grid, chain them into a sequence, export MIDI. Play the clip in Live and the Push becomes a light instrument.",
+    ],
+    specs: { Stack: "React", Output: "MIDI", Target: "Ableton Push" },
+    links: {
+      live: "/push-light-studio",
+      repo: "https://github.com/jsonslim/Push-light-studio",
+    },
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "vr-ambilight",
+    title: "VR Ambilight",
+    date: "2021-11",
+    status: [STATUS.EXPERIMENT, STATUS.OPEN_SOURCE],
+    tags: ["LED", "VR", "Firmware"],
+    summary:
+      "Peripheral LED system for the Pico 4 headset: extends the image into your peripheral vision to boost presence and ease eye strain.",
+    body: [],
+    specs: { Target: "Pico 4 HMD", Output: "Addressable LEDs" },
+    links: { repo: "https://github.com/jsonslim/VR-ambilight" },
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "neurodrive",
+    title: "NeuroDrive",
+    date: "2023-07",
+    status: [STATUS.OPEN_SOURCE, STATUS.PROTOTYPE],
+    tags: ["EMS", "VR", "Haptics"],
+    summary: "Open-source muscle stimulator for VR haptic feedback.",
+    body: [],
+    specs: { Domain: "Electrical muscle stimulation" },
+    links: { writeup: "https://hackaday.io/project/175991-neurodrive" },
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "smart-doorbell",
+    title: "Smart Doorbell",
+    date: "2023-04",
+    status: [STATUS.SHIPPED],
+    tags: ["ESP32", "Camera", "Telegram"],
+    summary:
+      "Wi-Fi + Ethernet camera doorbell. Live RTSP stream, motion-triggered notifications through Telegram.",
+    body: [],
+    specs: { MCU: "ESP32-CAM", Network: "Wi-Fi / Ethernet", Stream: "RTSP" },
+    links: {},
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "bitcoin-terminal",
+    title: "Bitcoin Payment Terminal",
+    date: "2022-03",
+    status: [STATUS.SHIPPED],
+    tags: ["ESP32", "Lightning", "POS"],
+    summary:
+      "ESP32 point-of-sale device that lets small businesses take Bitcoin payments over the Lightning Network.",
+    body: [],
+    specs: { MCU: "ESP32", Network: "Lightning" },
+    links: {},
+    cover: "",
+    youtube: "",
+  },
+  {
+    slug: "spray-paint-printer",
+    title: "Spray Paint Printer",
+    date: "2020-03",
+    status: [STATUS.EXPERIMENT],
+    tags: ["CNC", "Graffiti", "React"],
+    summary:
+      "Machine that paints graffiti from digital images: CNC-driven spray can plus a browser image editor.",
+    body: [],
+    specs: { Motion: "CNC", Editor: "React" },
+    links: {},
+    cover: "",
+    youtube: "",
+  },
+];
+
+/*
+ * Lab notes: short write-ups. Either internal (`body` blocks) or pointers
+ * to a write-up hosted elsewhere (`external`).
+ * Body blocks: "plain paragraph", { h: "Heading" }, { code: "..." },
+ *              { img: "/lab/..", caption: ".." }
+ */
+export const notes = [
+  {
+    slug: "unihiker-enclosure",
+    title: "Shaping an enclosure for the Unihiker",
+    date: "2023-09-19",
+    tags: ["Enclosure", "3D print", "DFRobot"],
+    summary: "Designing a case for the Unihiker single-board computer for a DFRobot maker challenge.",
+    external: "https://community.dfrobot.com/makelog-315063.html",
+  },
+  {
+    slug: "neurodrive-log",
+    title: "NeuroDrive build log",
+    date: "2023-07-02",
+    tags: ["EMS", "Haptics"],
+    summary: "Build log for an open-source muscle stimulator for VR.",
+    external: "https://hackaday.io/project/175991-neurodrive",
+  },
+];
+
+// Recent videos for the Media section. Add YouTube ids here to embed them.
+export const videos = [
+  // { id: "dQw4w9WgXcQ", title: "Whammy Maximizer demo", project: "whammy-maximizer" },
+];
+
+/* ---- helpers ---- */
+
+const byDateDesc = (a, b) => (a.date < b.date ? 1 : -1);
+
+export const sortedProjects = () => [...projects].sort(byDateDesc);
+export const sortedNotes = () => [...notes].sort(byDateDesc);
+
+// Stable catalogue numbers: oldest project is P-001.
+export const projectCode = (slug) => {
+  const ordered = [...projects].sort((a, b) => (a.date > b.date ? 1 : -1));
+  const i = ordered.findIndex((p) => p.slug === slug);
+  return `P-${String(i + 1).padStart(3, "0")}`;
+};
+
+export const noteCode = (slug) => {
+  const ordered = [...notes].sort((a, b) => (a.date > b.date ? 1 : -1));
+  const i = ordered.findIndex((n) => n.slug === slug);
+  return `N-${String(i + 1).padStart(3, "0")}`;
+};

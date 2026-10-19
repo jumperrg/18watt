@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    align-items: center;
+    margin: 0;
     background:
       radial-gradient(ellipse at 15% 20%, rgba(255, 245, 150, 0.55) 0%, transparent 55%),
       radial-gradient(ellipse at 85% 10%, rgba(255, 182, 210, 0.5) 0%, transparent 50%),
@@ -16,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
       radial-gradient(ellipse at 30% 75%, rgba(255, 200, 180, 0.35) 0%, transparent 50%),
       #f5f0eb;
     color: ${({ theme }) => theme.text};
-    display: flex;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: all 0.25s linear;
     position: relative;

@@ -4,7 +4,7 @@
   --cm-size: 32px; /* arm length */
   --cm-inset: 16px; /* distance from viewport edge */
   --cm-weight: 1px; /* line thickness */
-  --cm-color: #100;
+  --cm-color: rgba(17, 17, 16, 0.35);
 }
 
 .camera-marks {
@@ -25,13 +25,15 @@
   left: var(--cm-inset);
   border-top: var(--cm-weight) solid var(--cm-color);
   border-left: var(--cm-weight) solid var(--cm-color);
-}
+  border-top-left-radius: 8px;
+} 
 
 .cm-tr {
   top: var(--cm-inset);
   right: var(--cm-inset);
   border-top: var(--cm-weight) solid var(--cm-color);
   border-right: var(--cm-weight) solid var(--cm-color);
+  border-top-right-radius: 8px;
 }
 
 .cm-bl {
@@ -39,6 +41,7 @@
   left: var(--cm-inset);
   border-bottom: var(--cm-weight) solid var(--cm-color);
   border-left: var(--cm-weight) solid var(--cm-color);
+  border-bottom-left-radius: 8px;
 }
 
 .cm-br {
@@ -46,6 +49,7 @@
   right: var(--cm-inset);
   border-bottom: var(--cm-weight) solid var(--cm-color);
   border-right: var(--cm-weight) solid var(--cm-color);
+  border-bottom-right-radius: 8px;
 }
 
 .App {
