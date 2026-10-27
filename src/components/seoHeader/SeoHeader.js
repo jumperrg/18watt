@@ -10,19 +10,25 @@ import {
 } from "../../portfolio.js";
 
 function SeoHeader() {
+  // Build sameAs list defensively (ensure media.link exists)
   let sameAs = [];
   socialMediaLinks
     .filter(
       (media) =>
+        media &&
+        media.link &&
         !(media.link.startsWith("tel") || media.link.startsWith("mailto"))
     )
     .forEach((media) => {
       sameAs.push(media.link);
     });
 
-  let mail = socialMediaLinks
-    .find((media) => media.link.startsWith("mailto"))
-    .link.substring("mailto:".length);
+  // Find a mailto entry safely
+  const mailEntry = socialMediaLinks.find(
+    (media) => media && media.link && media.link.startsWith("mailto")
+  );
+  let mail = mailEntry ? mailEntry.link.replace(/^mailto:/, "") : "";
+
   let job = experience.sections
     ?.find((section) => section.work)
     ?.experiences?.at(0);

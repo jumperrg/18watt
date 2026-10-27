@@ -1,3 +1,57 @@
+/* Camera-mark corner brackets
+   ── tweak these three to restyle all marks at once ── */
+:root {
+  --cm-size: 32px; /* arm length */
+  --cm-inset: 16px; /* distance from viewport edge */
+  --cm-weight: 1px; /* line thickness */
+  --cm-color: rgba(17, 17, 16, 0.35);
+}
+
+.camera-marks {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cm {
+  position: absolute;
+  width: var(--cm-size);
+  height: var(--cm-size);
+}
+
+.cm-tl {
+  top: var(--cm-inset);
+  left: var(--cm-inset);
+  border-top: var(--cm-weight) solid var(--cm-color);
+  border-left: var(--cm-weight) solid var(--cm-color);
+  border-top-left-radius: 8px;
+} 
+
+.cm-tr {
+  top: var(--cm-inset);
+  right: var(--cm-inset);
+  border-top: var(--cm-weight) solid var(--cm-color);
+  border-right: var(--cm-weight) solid var(--cm-color);
+  border-top-right-radius: 8px;
+}
+
+.cm-bl {
+  bottom: var(--cm-inset);
+  left: var(--cm-inset);
+  border-bottom: var(--cm-weight) solid var(--cm-color);
+  border-left: var(--cm-weight) solid var(--cm-color);
+  border-bottom-left-radius: 8px;
+}
+
+.cm-br {
+  bottom: var(--cm-inset);
+  right: var(--cm-inset);
+  border-bottom: var(--cm-weight) solid var(--cm-color);
+  border-right: var(--cm-weight) solid var(--cm-color);
+  border-bottom-right-radius: 8px;
+}
+
 .App {
   text-align: center;
 }

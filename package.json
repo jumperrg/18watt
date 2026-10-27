@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "homepage": "https://18watt.de/",
   "scripts": {
+    "dev": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -28,7 +29,8 @@
     "react-scripts": "^5.0.1",
     "styled-components": "^5.1.1",
     "styletron-engine-atomic": "^1.4.6",
-    "styletron-react": "^5.2.7"
+    "styletron-react": "^5.2.7",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

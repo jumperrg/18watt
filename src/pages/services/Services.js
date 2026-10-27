@@ -1,54 +1,36 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header.js";
 import Footer from "../../components/footer/Footer.js";
-import GithubRepoCard from "../../components/githubRepoCard/GithubRepoCard.js";
-import PublicationCard from "../../components/publicationsCard/PublicationCard.js";
-import Button from "../../components/button/Button.js";
 import TopButton from "../../components/topButton/TopButton.js";
+import ServiceCard from "../../components/serviceCard/ServiceCard.js";
 import { Fade } from "react-reveal";
 import { servicesHeader } from "../../portfolio.js";
 import ServicesData from "../../shared/opensource/services.json";
-
-import "./Services.js";
-import ProjectsImg from "./ServicesImg.js";
+import "./Services.css";
 
 class Services extends Component {
   render() {
     const theme = this.props.theme;
     return (
-      <div className="projects-main">
+      <div className="services-main">
         <Header theme={theme} />
-        <div className="basic-projects">
-          <Fade  duration={800} distance="40px">
-            <div className="projects-heading-div">
-              <div className="projects-heading-img-div">
-                {/* <img
-											src={require(`../../assets/images/${projectsHeader["avatar_image_path"]}`)}
-											alt=""
-										/> */}
-                <ProjectsImg theme={theme} />
-              </div>
-              <div className="projects-heading-text-div">
-                <h1
-                  className="projects-heading-text"
-                  style={{ color: theme.text }}
-                >
-                  {servicesHeader.title}
-                </h1>
-                <p
-                  className="projects-header-detail-text subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  {servicesHeader["description"]}
-                </p>
-              </div>
-            </div>
+
+        <div className="services-lab-header">
+          <Fade duration={700} distance="30px">
+            <p className="services-lab-label">Services</p>
+            <h1 className="services-lab-title" style={{ color: theme.text }}>
+              {servicesHeader.title}
+            </h1>
+            <p className="services-lab-sub" style={{ color: theme.secondaryText }}>
+              {servicesHeader.description}
+            </p>
           </Fade>
         </div>
-        <div className="repo-cards-div-main">
-          {ServicesData.data.map((repo) => {
-            return <GithubRepoCard repo={repo} theme={theme} />;
-          })}
+
+        <div className="service-cards-grid">
+          {ServicesData.data.map((service) => (
+            <ServiceCard key={service.id} service={service} theme={theme} />
+          ))}
         </div>
 
         <Footer theme={this.props.theme} onToggle={this.props.onToggle} />

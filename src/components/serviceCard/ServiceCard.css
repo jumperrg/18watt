@@ -1,0 +1,109 @@
+.service-card {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 280px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: #383838;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.service-card-icon {
+  font-size: 40px;
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+
+.service-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin: 0 0 0.75rem 0;
+  font-family: "Google Sans Medium", sans-serif;
+  line-height: 1.2;
+}
+
+.service-card-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #888;
+  margin: 0 0 1.25rem 0;
+  font-family: "Google Sans Regular", sans-serif;
+}
+
+.service-card-bullets {
+  list-style: none;
+  margin: 0 0 1.75rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.service-card-bullet {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 13px;
+  color: #aaa;
+  font-family: "Google Sans Regular", sans-serif;
+  line-height: 1.5;
+}
+
+.service-card-bullet-mark {
+  color: #444;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.service-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Google Sans Regular", sans-serif;
+  padding: 0.65rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.service-card-cta:hover {
+  background: #1f1f1f;
+  border-color: #555;
+  color: #fff;
+}
+
+.service-card-cta-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.service-card-cta:hover .service-card-cta-arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .service-card-title {
+    font-size: 20px;
+  }
+}

@@ -56,12 +56,12 @@ export default function Greeting(props) {
               </div> */}
             </div>
           </div>
-          <div className="greeting-image-div">
-            {/* <img
-							alt="saad sitting on table"
-							src={require("../../assets/images/feelingProud.svg")}
-						></img> */}
-            <FeelingProud theme={theme} />
+
+          {/* Overlay content */}
+          <div className="greeting-overlay">
+            <h1 className="greeting-text">{greeting.title}</h1>
+            <p className="greeting-text-p">{greeting.subTitle}</p>
+            <SocialMedia theme={theme} />
           </div>
         </div>
       </div>

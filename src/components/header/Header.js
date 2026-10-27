@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
-import { Fade } from "react-reveal";
+// import { Fade } from "react-reveal";
 import { NavLink, Link } from "react-router-dom";
 import { settings } from "../../portfolio.js";
 import SeoHeader from "../seoHeader/SeoHeader";
@@ -31,7 +31,7 @@ class Header extends Component {
             <label className="menu-icon" htmlFor="menu-btn">
               <span className="navicon"></span>
             </label>
-            <ul className="menu" style={{ backgroundColor: theme.body }}>
+            <ul className="menu">
               <li>
                 <NavLink
                   to="/home"

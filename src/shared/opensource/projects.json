@@ -62,14 +62,8 @@
       "description": "Online editor for building midi sequences for lightshow on Ableton Push",
       "isFork": false,
       "languages": [
-        {
-          "name": "React",
-          "iconifyClass": "logos-react"
-        },
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
+        { "name": "React", "iconifyClass": "logos-react" },
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" }
       ]
     },
     {
@@ -98,10 +92,7 @@
       "description": "A Max for life plugin automating the guitar pedal Digitech Whammy",
       "isFork": false,
       "languages": [
-        {
-          "name": "JavaScript",
-          "iconifyClass": "logos-javascript"
-        }
+        { "name": "JavaScript", "iconifyClass": "logos-javascript" }
       ]
     }
   ]

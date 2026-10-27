@@ -1,95 +1,72 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import GithubRepoCard from "../../components/githubRepoCard/GithubRepoCard";
-import PublicationCard from "../../components/publicationsCard/PublicationCard";
-import Button from "../../components/button/Button";
 import TopButton from "../../components/topButton/TopButton";
+import ProjectCard from "../../components/projectCard/ProjectCard";
 import { Fade } from "react-reveal";
-import {
-  greeting,
-  projectsHeader,
-  publicationsHeader,
-  publications,
-} from "../../portfolio.js";
+import { projectsHeader } from "../../portfolio.js";
 import ProjectsData from "../../shared/opensource/projects.json";
 import "./Projects.css";
-import ProjectsImg from "./ProjectsImg";
+
+const FILTERS = ["All", "Hardware", "Software", "Research"];
 
 class Projects extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeFilter: "All" };
+  }
+
+  setFilter(filter) {
+    this.setState({ activeFilter: filter });
+  }
+
   render() {
     const theme = this.props.theme;
+    const { activeFilter } = this.state;
+
+    const filtered =
+      activeFilter === "All"
+        ? ProjectsData.data
+        : ProjectsData.data.filter((p) => p.category === activeFilter);
+
     return (
       <div className="projects-main">
         <Header theme={theme} />
-        <div className="basic-projects">
-          <Fade duration={800}>
-            <div className="projects-heading-div">
-              <div className="projects-heading-img-div">
-                {/* <img
-											src={require(`../../assets/images/${projectsHeader["avatar_image_path"]}`)}
-											alt=""
-										/> */}
-                <ProjectsImg theme={theme} />
-              </div>
-              <div className="projects-heading-text-div">
-                <h1
-                  className="projects-heading-text"
-                  style={{ color: theme.text }}
-                >
-                  {projectsHeader.title}
-                </h1>
-                <p
-                  className="projects-header-detail-text subTitle"
-                  style={{ color: theme.secondaryText }}
-                >
-                  {projectsHeader["description"]}
-                </p>
-              </div>
-            </div>
+
+        <div className="projects-lab-header">
+          <Fade duration={700} distance="30px">
+            <p className="projects-lab-label">Work</p>
+            <h1 className="projects-lab-title" style={{ color: theme.text }}>
+              {projectsHeader.title}
+            </h1>
+            <p className="projects-lab-sub" style={{ color: theme.secondaryText }}>
+              {projectsHeader.description}
+            </p>
           </Fade>
         </div>
-        <div className="repo-cards-div-main">
-          {ProjectsData.data.map((repo) => {
-            return <GithubRepoCard repo={repo} theme={theme} />;
-          })}
+
+        <div className="projects-filter-bar">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              className={`projects-filter-btn${activeFilter === f ? " projects-filter-btn--active" : ""}`}
+              onClick={() => this.setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
         </div>
-        <Button
-          text={"More Projects"}
-          className="project-button"
-          href={greeting.githubProfile}
-          newTab={true}
-          theme={theme}
-        />
 
-        {/* Publications  */}
-        {publications.data.length > 0 ? (
-          <div className="basic-projects">
-            <Fade duration={800}>
-              <div className="publications-heading-div">
-                <div className="publications-heading-text-div">
-                  <h1
-                    className="publications-heading-text"
-                    style={{ color: theme.text }}
-                  >
-                    {publicationsHeader.title}
-                  </h1>
-                  <p
-                    className="projects-header-detail-text subTitle"
-                    style={{ color: theme.secondaryText }}
-                  >
-                    {publicationsHeader["description"]}
-                  </p>
-                </div>
-              </div>
-            </Fade>
-          </div>
-        ) : null}
-
-        <div className="repo-cards-div-main">
-          {publications.data.map((pub) => {
-            return <PublicationCard pub={pub} theme={theme} />;
-          })}
+        <div className="project-cards-grid">
+          {filtered.length > 0 ? (
+            filtered.map((repo) => (
+              <ProjectCard key={repo.id} repo={repo} theme={theme} />
+            ))
+          ) : (
+            <p className="projects-empty" style={{ color: theme.secondaryText }}>
+              No projects in this category yet.
+            </p>
+          )}
         </div>
 
         <Footer theme={this.props.theme} onToggle={this.props.onToggle} />

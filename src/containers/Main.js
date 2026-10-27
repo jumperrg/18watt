@@ -1,78 +1,55 @@
 import React, { Component } from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Home from "../pages/home/HomeComponent";
-import Splash from "../pages/splash/Splash";
-import Education from "../pages/education/EducationComponent";
-import Experience from "../pages/experience/Experience";
-import Eighteenwatt from "../pages/eighteenwatt/Eighteenwatt";
-import Contact from "../pages/contact/ContactComponent";
-import Projects from "../pages/projects/Projects";
-import Services from "../pages/services/Services";
-import { settings } from "../portfolio.js";
-import Error404 from "../pages/errors/error404/Error";
+import {
+  Route,
+  Switch,
+  Redirect,
+  BrowserRouter as Router,
+} from "react-router-dom";
+import {
+  LabHome,
+  LabProjects,
+  LabProject,
+  LabNotes,
+  LabNote,
+  LabMedia,
+  LabShop,
+  LabNotFound,
+} from "../lab/LabPages";
 import Agb from "../pages/agb/Agb.js";
+import Sera from "../pages/sera/SeraComponent.js";
 import Impressum from "../pages/impressum/Impressum.js";
 import Links from "../pages/links/Links.js";
 import Datenschutz from "../pages/datenschutz/datenschutz.js";
 import PushLightStudio from "../pages/pushLightStudio/PushLightStudio.js";
+
+// Pages from the old portfolio layout that now fold into the lab.
+const RETIRED = ["/home", "/experience", "/education", "/18watt", "/services", "/contact", "/splash"];
 
 export default class Main extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route
-            path="/"
-            exact
-            render={(props) => <Home {...props} theme={this.props.theme} />}
-          />
-          <Route
-            path="/home"
-            render={(props) => <Home {...props} theme={this.props.theme} />}
-          />
-          <Route
-            path="/experience"
-            exact
-            render={(props) => (
-              <Experience {...props} theme={this.props.theme} />
-            )}
-          />
-          <Route
-            path="/education"
-            render={(props) => (
-              <Education {...props} theme={this.props.theme} />
-            )}
-          />
-          <Route
-            path="/18watt"
-            render={(props) => (
-              <Eighteenwatt {...props} theme={this.props.theme} />
-            )}
-          />
-          <Route
-            path="/services"
-            render={(props) => <Services {...props} theme={this.props.theme} />}
-          />
-          <Route
-            path="/contact"
-            render={(props) => <Contact {...props} theme={this.props.theme} />}
-          />
+          <Route path="/" exact component={LabHome} />
+          <Route path="/projects" exact component={LabProjects} />
+          <Route path="/projects/:slug" component={LabProject} />
+          <Route path="/notes" exact component={LabNotes} />
+          <Route path="/notes/:slug" component={LabNote} />
+          <Route path="/media" component={LabMedia} />
+          <Route path="/shop" component={LabShop} />
 
-          {settings.isSplash && (
-            <Route
-              path="/splash"
-              render={(props) => <Splash {...props} theme={this.props.theme} />}
-            />
-          )}
-
-          <Route
-            path="/projects"
-            render={(props) => <Projects {...props} theme={this.props.theme} />}
-          />
+          {RETIRED.map((path) => (
+            <Redirect key={path} from={path} to="/" />
+          ))}
 
           <Route
             path="/agb"
             render={(props) => <Agb {...props} theme={this.props.theme} />}
+          />
+
+          <Route
+            path="/sera"
+            render={(props) => <Sera {...props} theme={this.props.theme} />}
           />
 
           <Route
@@ -102,8 +79,8 @@ export default class Main extends Component {
           <Route
             path="/push-light-studio"
             render={(props) => (
-              <PushLightStudio 
-                {...props} 
+              <PushLightStudio
+                {...props}
                 theme={this.props.theme}
                 url="/pushLightStudio/index.html"
                 title="Push Light Studio"
@@ -111,10 +88,7 @@ export default class Main extends Component {
             )}
           />
 
-          <Route
-            path="*"
-            render={(props) => <Error404 {...props} theme={this.props.theme} />}
-          />
+          <Route component={LabNotFound} />
         </Switch>
       </Router>
     );
