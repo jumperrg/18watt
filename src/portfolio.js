@@ -26,19 +26,32 @@ const greeting = {
     "A tech agency and development studio building software, hardware, and everything in between.",
   resumeLink:
     "https://drive.google.com/file/d/1rHltg59ofjR62RYwYQFx8gK_Xh8jAiJS/view?usp=drive_link",
-  portfolio_repository: "https://github.com/jsonslim?tab=repositories",
-  githubProfile: "https://github.com/jsonslim",
+  portfolio_repository: "https://github.com/jumperrg",
+  githubProfile: "https://github.com/jumperrg",
+  telegramBotLink: "https://webk.telegram.org/#@watt18_bot",
 };
 
 const socialMediaLinks = [
   /* Your Social Media Link */
   /* Your Social Media Link */
-  // github: "https://github.com/jsonslim",
+  // github: "https://github.com/jumperrg",
   // linkedin: "https://www.linkedin.com/in/sergeynodejs/",
   // gmail: "sergey.nodejs@gmail.com",
   // twitter: "https://x.com/SergeyT97338003",
   // instagram: "https://www.instagram.com/18watt"
 
+  {
+    name: "Github",
+    link: "https://github.com/jumperrg",
+    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
+    backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/sergeynodejs/",
+    fontAwesomeIcon: "fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
+    backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
+  },
   {
     name: "YouTube",
     link: "https://www.youtube.com/@GoodVibeSolutions",
