@@ -1,27 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { lab, channels } from "./content";
+import { lab, copy, channels, support } from "./content";
 import "./lab.css";
 
 const NAV = [
+  { to: "/", no: "00", label: "Home", exact: true },
   { to: "/projects", no: "01", label: "Projects" },
   { to: "/notes", no: "02", label: "Lab notes" },
   { to: "/media", no: "03", label: "Media" },
+  { to: "/shop", no: "04", label: "Shop" },
 ];
-
-function useClock() {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
-  }, []);
-  return now;
-}
 
 export function Shell({ title, children }) {
   const { pathname } = useLocation();
-  const now = useClock();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +22,7 @@ export function Shell({ title, children }) {
   return (
     <div className="lab">
       <Helmet>
-        <title>{title ? `${title} — 18WATT` : "18WATT — Independent hardware lab"}</title>
+        <title>{title ? `${title} — 18WATT` : "18WATT — Hardware, AI & sound lab"}</title>
       </Helmet>
 
       <header className="lab-bar">
@@ -40,15 +32,12 @@ export function Shell({ title, children }) {
         </Link>
         <nav className="lab-bar__nav" aria-label="Main">
           {NAV.map((n) => (
-            <NavLink key={n.to} to={n.to} activeClassName="is-active">
+            <NavLink key={n.to} to={n.to} exact={n.exact} activeClassName="is-active">
               <span className="lab-bar__no">{n.no}</span>
               {n.label}
             </NavLink>
           ))}
         </nav>
-        <div className="lab-bar__meta mono" aria-hidden="true">
-          {now.toISOString().slice(0, 10)} {now.toTimeString().slice(0, 8)}
-        </div>
       </header>
 
       <main>{children}</main>
@@ -69,6 +58,12 @@ export function Shell({ title, children }) {
           <div>
             <p className="label">Contact</p>
             <a href={`mailto:${lab.email}`}>{lab.email}</a>
+            <Link to="/shop">Shop →</Link>
+            {support.url && (
+              <a href={support.url} target="_blank" rel="noopener noreferrer">
+                {support.name} ↗
+              </a>
+            )}
           </div>
           <div>
             <p className="label">Legal</p>
@@ -78,7 +73,7 @@ export function Shell({ title, children }) {
           </div>
         </div>
         <p className="lab-foot__line mono">
-          © {now.getFullYear()} {lab.author} · 18WATT · Built on the same bench
+          © {new Date().getFullYear()} {lab.author} · 18WATT · {copy.footer}
         </p>
       </footer>
     </div>

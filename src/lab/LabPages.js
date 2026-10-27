@@ -1,14 +1,23 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { Shell, SectionHead, Status, Figure, VideoEmbed, Scope } from "./LabUI";
 import {
   lab,
+  copy,
+  legend,
+  disciplines,
   channels,
   videos,
   sortedProjects,
   sortedNotes,
   projectCode,
   noteCode,
+  featuredProject,
+  coverOf,
+  support,
+  GET_KINDS,
+  isAvailable,
+  isOpen,
 } from "./content";
 
 const LINK_LABELS = {
@@ -26,16 +35,133 @@ function ProjectCard({ p, big }) {
   const code = projectCode(p.slug);
   return (
     <Link to={`/projects/${p.slug}`} className={`pcard${big ? " pcard--big" : ""}`}>
-      <Figure src={p.cover} code={code} label={p.title} seed={p.slug} />
+      <Figure src={coverOf(p)} code={code} label={p.title} seed={p.slug} />
       <div className="pcard__meta mono">
         <span>{code}</span>
         <span>{p.date.slice(0, 4)}</span>
       </div>
       <h3 className="pcard__title">{p.title}</h3>
-      <Status items={p.status} />
+      <Status items={isAvailable(p) ? [...p.status, "Available"] : p.status} />
       <p className="pcard__sum">{p.summary}</p>
       <p className="pcard__tags mono">{p.tags.join(" / ")}</p>
     </Link>
+  );
+}
+
+function Feature({ p }) {
+  const code = projectCode(p.slug);
+  const specs = Object.entries(p.specs || {}).slice(0, 3);
+  return (
+    <section className="wrap feat">
+      <div className="feat__bar mono">
+        <span className="feat__live">
+          <span className="lab-dot" aria-hidden="true" />
+          Now on the bench
+        </span>
+        <span>
+          {code} · {p.date}
+        </span>
+      </div>
+      <div className="feat__grid">
+        <Link to={`/projects/${p.slug}`} className="feat__media" aria-label={p.title}>
+          <Figure src={coverOf(p)} code={code} label={p.title} seed={p.slug} />
+          <span className="feat__marks" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+        </Link>
+        <div className="feat__info">
+          <p className="label">Latest project</p>
+          <h2 className="feat__title">
+            <Link to={`/projects/${p.slug}`}>{p.title}</Link>
+          </h2>
+          <Status items={isAvailable(p) ? [...p.status, "Available"] : p.status} />
+          <p className="feat__sum">{p.summary}</p>
+          {specs.length > 0 && (
+            <dl className="specs mono">
+              {specs.map(([k, v]) => (
+                <React.Fragment key={k}>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </React.Fragment>
+              ))}
+            </dl>
+          )}
+          <div className="btns">
+            <Link className="btn btn--accent" to={`/projects/${p.slug}`}>
+              Open project →
+            </Link>
+            {p.youtube && (
+              <a
+                className="btn"
+                href={`https://www.youtube.com/watch?v=${p.youtube}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch demo ↗
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GetList({ p }) {
+  const rows = [...(p.get || [])];
+  if (isOpen(p)) rows.push({ kind: "files", where: "GitHub", url: p.links.repo, price: "Free" });
+  if (!rows.length) return null;
+  return (
+    <div className="getlist">
+      {rows.map((g, i) => (
+        <a key={i} className="getlist__row" href={g.url} target="_blank" rel="noopener noreferrer">
+          <span className="mono getlist__kind">{GET_KINDS[g.kind] || g.kind}</span>
+          <span className="getlist__where">{g.where}</span>
+          <span className="mono getlist__price">{g.price || ""}</span>
+          <span className="getlist__go" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function SupportBlock() {
+  return (
+    <div className="support">
+      <p className="mono legend__label">Support</p>
+      <h2 className="support__title">{copy.supportTitle}</h2>
+      <p className="support__text">{copy.support}</p>
+      {support.url ? (
+        <a className="btn btn--accent" href={support.url} target="_blank" rel="noopener noreferrer">
+          {support.name} ↗
+        </a>
+      ) : (
+        <span className="btn btn--ghost">{support.name} · coming soon</span>
+      )}
+    </div>
+  );
+}
+
+function Legend() {
+  return (
+    <section className="legend">
+      <div className="wrap legend__inner">
+        <p className="mono legend__label">00 / Legend</p>
+        <h2 className="legend__title">{legend.title}</h2>
+        <div className="legend__frags">
+          {legend.fragments.map((f, i) => (
+            <div key={i} className="legend__frag">
+              <span className="mono">Frag. {String(i + 1).padStart(2, "0")}</span>
+              <p>{f}</p>
+            </div>
+          ))}
+        </div>
+        <p className="legend__signoff">{legend.signoff}</p>
+      </div>
+    </section>
   );
 }
 
@@ -124,7 +250,8 @@ function Blocks({ body }) {
 export function LabHome() {
   const projects = sortedProjects();
   const notes = sortedNotes();
-  const [a, b, ...rest] = projects;
+  const featured = featuredProject();
+  const [a, b, ...rest] = projects.filter((p) => p !== featured);
 
   return (
     <Shell>
@@ -140,13 +267,24 @@ export function LabHome() {
           18WATT
         </h1>
         <Scope />
+      </section>
+
+      {featured && <Feature p={featured} />}
+
+      <section className="wrap intro">
         <div className="hero__grid">
           <p className="hero__statement">{lab.statement}</p>
           <ul className="hero__disc mono">
-            {lab.disciplines.map((d, i) => (
-              <li key={d}>
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                {d}
+            {disciplines.map((d, i) => (
+              <li key={d.slug}>
+                <Link to={`/projects?area=${d.slug}`}>
+                  <span className="hero__disc-no">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="hero__disc-name">{d.name}</span>
+                  <span className="hero__disc-count">
+                    {String(projects.filter((p) => p.areas.includes(d.slug)).length).padStart(2, "0")}
+                  </span>
+                  <span className="hero__disc-go" aria-hidden="true">→</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -166,11 +304,11 @@ export function LabHome() {
         </div>
       </section>
 
+      <Legend />
+
       <section className="wrap sec">
         <SectionHead no="02" title="Lab notes" to="/notes" linkLabel="All notes" />
-        <p className="sec-lede">
-          What I tried, how it works, what broke and what fixed it.
-        </p>
+        <p className="sec-lede">{copy.notes}</p>
         <div className="nlist">
           {notes.slice(0, 6).map((n) => (
             <NoteRow key={n.slug} n={n} />
@@ -180,43 +318,80 @@ export function LabHome() {
 
       <section className="wrap sec">
         <SectionHead no="03" title="Media" to="/media" linkLabel="Media" />
-        <p className="sec-lede">
-          Full demos on YouTube, short clips on Instagram. Every project ends up
-          archived here.
-        </p>
+        <p className="sec-lede">{copy.media}</p>
         <Channels />
         <VideoGrid list={videos.slice(0, 2)} />
       </section>
 
       <section className="wrap sec contact">
-        <p className="label">Signal in</p>
-        <p className="contact__line">
-          Building a strange instrument, controller or device?{" "}
-          <a href={`mailto:${lab.email}`}>Write to the lab →</a>
-        </p>
+        <div>
+          <p className="label">Signal in</p>
+          <p className="contact__line">
+            {copy.contact}{" "}
+            <a href={`mailto:${lab.email}`}>{copy.contactCta}</a>
+          </p>
+        </div>
+        <div className="contact__side">
+          <p className="label">Take one home</p>
+          <p className="contact__small">{copy.shop}</p>
+          <div className="btns">
+            <Link className="btn" to="/shop">
+              Shop →
+            </Link>
+            {support.url && (
+              <a className="btn" href={support.url} target="_blank" rel="noopener noreferrer">
+                {support.name} ↗
+              </a>
+            )}
+          </div>
+        </div>
       </section>
     </Shell>
   );
 }
 
 export function LabProjects() {
-  const projects = sortedProjects();
+  const { search } = useLocation();
+  const area = new URLSearchParams(search).get("area");
+  const all = sortedProjects();
+  const projects = area ? all.filter((p) => p.areas.includes(area)) : all;
   return (
     <Shell title="Projects">
       <section className="wrap page-head">
         <p className="mono label">01 / Index</p>
         <h1 className="page-title">Projects</h1>
-        <p className="sec-lede">
-          Controllers, instruments, firmware and odd machines. Built, tested,
-          documented.
-        </p>
+        <p className="sec-lede">{copy.projects}</p>
       </section>
       <section className="wrap sec sec--tight">
-        <div className="pgrid">
-          {projects.map((p) => (
-            <ProjectCard key={p.slug} p={p} />
+        <nav className="filter mono" aria-label="Filter by area">
+          <Link to="/projects" className={!area ? "is-active" : ""}>
+            All <span>{String(all.length).padStart(2, "0")}</span>
+          </Link>
+          {disciplines.map((d) => (
+            <Link
+              key={d.slug}
+              to={`/projects?area=${d.slug}`}
+              className={area === d.slug ? "is-active" : ""}
+            >
+              {d.name}{" "}
+              <span>
+                {String(all.filter((p) => p.areas.includes(d.slug)).length).padStart(2, "0")}
+              </span>
+            </Link>
           ))}
-        </div>
+        </nav>
+        {projects.length > 0 ? (
+          <div className="pgrid">
+            {projects.map((p) => (
+              <ProjectCard key={p.slug} p={p} />
+            ))}
+          </div>
+        ) : (
+          <p className="empty mono">
+            <span className="lab-dot" aria-hidden="true" />
+            {copy.emptyArea}
+          </p>
+        )}
       </section>
     </Shell>
   );
@@ -243,13 +418,13 @@ export function LabProject() {
         </p>
         <h1 className="page-title">{p.title}</h1>
         <div className="proj__row">
-          <Status items={p.status} />
+          <Status items={isAvailable(p) ? [...p.status, "Available"] : p.status} />
           <span className="mono">{p.date}</span>
           <span className="mono">{p.tags.join(" / ")}</span>
         </div>
 
         <div className="proj__cover">
-          <Figure src={p.cover} code={code} label={p.title} seed={p.slug} />
+          <Figure src={coverOf(p)} code={code} label={p.title} seed={p.slug} />
         </div>
 
         <div className="proj__grid">
@@ -287,6 +462,12 @@ export function LabProject() {
                 )}
               </div>
             )}
+            {(isAvailable(p) || isOpen(p)) && (
+              <div className="proj__get">
+                <p className="label">Get one</p>
+                <GetList p={p} />
+              </div>
+            )}
           </aside>
         </div>
 
@@ -305,10 +486,7 @@ export function LabNotes() {
       <section className="wrap page-head">
         <p className="mono label">02 / Log</p>
         <h1 className="page-title">Lab notes</h1>
-        <p className="sec-lede">
-          Short technical write-ups: experiments, schematics, code and
-          observations from the bench.
-        </p>
+        <p className="sec-lede">{copy.notes}</p>
       </section>
       <section className="wrap sec sec--tight">
         <div className="nlist">
@@ -350,16 +528,87 @@ export function LabNote() {
   );
 }
 
+export function LabShop() {
+  const all = sortedProjects();
+  const available = all.filter(isAvailable);
+  const open = all.filter(isOpen);
+  return (
+    <Shell title="Shop">
+      <section className="wrap page-head">
+        <p className="mono label">04 / Supply</p>
+        <h1 className="page-title">Shop</h1>
+        <p className="sec-lede">{copy.shop}</p>
+      </section>
+
+      <section className="wrap sec sec--tight">
+        <p className="label shop__label">Available now</p>
+        {available.length > 0 ? (
+          <div className="shopgrid">
+            {available.map((p) => (
+              <div key={p.slug} className="shopitem">
+                <Link to={`/projects/${p.slug}`}>
+                  <Figure src={coverOf(p)} code={projectCode(p.slug)} label={p.title} seed={p.slug} />
+                </Link>
+                <div className="pcard__meta mono">
+                  <span>{projectCode(p.slug)}</span>
+                  <span>{p.tags.join(" / ")}</span>
+                </div>
+                <h3 className="pcard__title">
+                  <Link to={`/projects/${p.slug}`}>{p.title}</Link>
+                </h3>
+                <p className="pcard__sum">{p.summary}</p>
+                <GetList p={p} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="empty mono">
+            <span className="lab-dot" aria-hidden="true" />
+            {copy.shopEmpty}
+          </p>
+        )}
+      </section>
+
+      {open.length > 0 && (
+        <section className="wrap sec">
+          <SectionHead no="OS" title="Build it yourself" />
+          <p className="sec-lede">{copy.diy}</p>
+          <div className="nlist">
+            {open.map((p) => (
+              <a
+                key={p.slug}
+                className="nrow"
+                href={p.links.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="mono nrow__date">{p.date}</span>
+                <span className="mono nrow__code">{projectCode(p.slug)}</span>
+                <span className="nrow__title">{p.title}</span>
+                <span className="mono nrow__tags">Source files · free</span>
+                <span className="nrow__go" aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="legend legend--support">
+        <div className="wrap">
+          <SupportBlock />
+        </div>
+      </section>
+    </Shell>
+  );
+}
+
 export function LabMedia() {
   return (
     <Shell title="Media">
       <section className="wrap page-head">
         <p className="mono label">03 / Channels</p>
         <h1 className="page-title">Media</h1>
-        <p className="sec-lede">
-          YouTube carries the full demonstrations. Instagram carries the short
-          clips straight from the bench. This site keeps the archive.
-        </p>
+        <p className="sec-lede">{copy.media}</p>
       </section>
       <section className="wrap sec sec--tight">
         <Channels />
@@ -376,7 +625,7 @@ export function LabNotFound() {
         <p className="mono label">ERR / 404</p>
         <h1 className="wordmark wordmark--small">NO SIGNAL</h1>
         <p className="sec-lede">
-          Nothing on this channel. <Link to="/">Back to the lab →</Link>
+          {copy.notFound} <Link to="/">Back to the lab →</Link>
         </p>
       </section>
     </Shell>

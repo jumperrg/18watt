@@ -12,6 +12,7 @@ import {
   LabNotes,
   LabNote,
   LabMedia,
+  LabShop,
   LabNotFound,
 } from "../lab/LabPages";
 import Agb from "../pages/agb/Agb.js";
@@ -35,6 +36,7 @@ export default class Main extends Component {
           <Route path="/notes" exact component={LabNotes} />
           <Route path="/notes/:slug" component={LabNote} />
           <Route path="/media" component={LabMedia} />
+          <Route path="/shop" component={LabShop} />
 
           {RETIRED.map((path) => (
             <Redirect key={path} from={path} to="/" />

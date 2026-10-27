@@ -9,17 +9,70 @@
  * Leave `cover` empty and a generated technical placeholder is drawn.
  *
  * Video: `youtube` takes a YouTube video id (the part after watch?v=).
+ * With no cover, the video's thumbnail is used.
+ *
+ * Home page hook: add `featured: true` to one project to pin it to the big
+ * "Now on the bench" block; otherwise the newest project is shown.
  */
 
 export const lab = {
   name: "18WATT",
-  tagline: "Independent hardware lab",
+  tagline: "Independent lab — hardware / AI / sound",
   statement:
-    "A personal technical lab at the intersection of electronics, code, music and experimental design. Real devices, built on the bench, documented here.",
+    "A lab for instruments that don't exist yet. Hardware, machine intelligence and sound, soldered into objects you can hold. Small doors to somewhere else.",
   author: "Sergey Tarasov",
   email: "sergey.nodejs@gmail.com",
-  disciplines: ["Electronics", "Firmware", "Music tech", "Interfaces"],
 };
+
+// Support link (Buy Me a Coffee, Ko-fi, ...). Leave url empty to show
+// "coming soon" instead of a button.
+export const support = {
+  name: "Buy Me a Coffee",
+  url: "", // e.g. "https://buymeacoffee.com/<your-handle>"
+};
+
+/*
+ * Site copy. The legend is never stated outright: 18 watts is what a small
+ * valve amp needs to sing, and roughly what a human brain burns while it
+ * dreams. Music + the dreaming mind, hidden in the name.
+ */
+export const copy = {
+  projects: "Instruments, controllers, machines. Each one works. Each one opens onto something.",
+  notes: "Field notes from the bench: what was tried, what burned, what finally hummed.",
+  media:
+    "The bench, recorded. Full transmissions on YouTube, short signals on Instagram. The archive lives here.",
+  contact: "Building something that shouldn't exist yet?",
+  contactCta: "Open a channel →",
+  footer: "Powered by eighteen watts",
+  emptyArea: "Nothing on this channel yet. First signal incoming.",
+  notFound: "This room hasn't been built yet.",
+  shop: "Take a piece of the lab home. Assembled units and kits, bare boards made on demand, and every file open.",
+  shopEmpty: "First batch is still on the bench.",
+  diy: "Open hardware. Fork it, fab it, bend it into something else.",
+  supportTitle: "Feed the bench",
+  support:
+    "Eighteen watts isn't much. Every coffee buys a little more solder, a few more boards, one more night of the lab running.",
+};
+
+export const legend = {
+  title: "Eighteen watts",
+  fragments: [
+    "Eighteen watts will push a small valve amplifier until it sings. It is also, give or take, what a human brain burns while it dreams.",
+    "Everything here is built on that budget. Hand-wired, hand-coded, a little unstable on purpose. Instruments that listen back. Controllers that turn a gesture into weather. Models fed on noise until they start to hum.",
+    "Each project is a small door. Some open onto sound, some onto light, some onto rooms that only exist while the power is on.",
+  ],
+  signoff: "The world outside is loud and finished. On the bench it is still being drawn.",
+};
+
+// Areas of work. Each project lists the area slugs it belongs to in `areas`;
+// the home page links each area to /projects?area=<slug>.
+export const disciplines = [
+  { slug: "electronics", name: "Electronics" },
+  { slug: "firmware", name: "Firmware" },
+  { slug: "ai", name: "Machine intelligence" },
+  { slug: "music-tech", name: "Music tech" },
+  { slug: "interfaces", name: "Interfaces" },
+];
 
 export const channels = [
   {
@@ -27,21 +80,21 @@ export const channels = [
     name: "YouTube",
     handle: "@GoodVibeSolutions",
     url: "https://www.youtube.com/@GoodVibeSolutions",
-    role: "Full demos, builds and walkthroughs",
+    role: "Full transmissions: demos, builds, walkthroughs",
   },
   {
     id: "instagram",
     name: "Instagram",
     handle: "@18watt",
     url: "https://www.instagram.com/18watt",
-    role: "Short clips from the bench",
+    role: "Short signals from the bench",
   },
   {
     id: "github",
     name: "GitHub",
     handle: "jsonslim",
     url: "https://github.com/jsonslim",
-    role: "Source, firmware, schematics",
+    role: "Open schematics, firmware, source",
   },
 ];
 
@@ -57,6 +110,7 @@ export const STATUS = {
 export const projects = [
   {
     slug: "whammy-maximizer",
+    areas: ["music-tech", "interfaces"],
     title: "Whammy Maximizer",
     date: "2021-01",
     status: [STATUS.OPEN_SOURCE],
@@ -68,11 +122,13 @@ export const projects = [
     ],
     specs: { Host: "Ableton Live / Max for Live", Protocol: "MIDI", Target: "Digitech Whammy" },
     links: { repo: "https://github.com/jsonslim/Whammy-Maximizer" },
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "push-light-studio",
+    areas: ["music-tech", "interfaces"],
     title: "Push Light Studio",
     date: "2022-02",
     status: [STATUS.OPEN_SOURCE, STATUS.SHIPPED],
@@ -87,11 +143,13 @@ export const projects = [
       live: "/push-light-studio",
       repo: "https://github.com/jsonslim/Push-light-studio",
     },
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "vr-ambilight",
+    areas: ["electronics", "firmware"],
     title: "VR Ambilight",
     date: "2021-11",
     status: [STATUS.EXPERIMENT, STATUS.OPEN_SOURCE],
@@ -101,11 +159,13 @@ export const projects = [
     body: [],
     specs: { Target: "Pico 4 HMD", Output: "Addressable LEDs" },
     links: { repo: "https://github.com/jsonslim/VR-ambilight" },
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "neurodrive",
+    areas: ["electronics", "interfaces"],
     title: "NeuroDrive",
     date: "2023-07",
     status: [STATUS.OPEN_SOURCE, STATUS.PROTOTYPE],
@@ -114,11 +174,13 @@ export const projects = [
     body: [],
     specs: { Domain: "Electrical muscle stimulation" },
     links: { writeup: "https://hackaday.io/project/175991-neurodrive" },
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "smart-doorbell",
+    areas: ["electronics", "firmware"],
     title: "Smart Doorbell",
     date: "2023-04",
     status: [STATUS.SHIPPED],
@@ -128,11 +190,13 @@ export const projects = [
     body: [],
     specs: { MCU: "ESP32-CAM", Network: "Wi-Fi / Ethernet", Stream: "RTSP" },
     links: {},
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "bitcoin-terminal",
+    areas: ["electronics", "firmware"],
     title: "Bitcoin Payment Terminal",
     date: "2022-03",
     status: [STATUS.SHIPPED],
@@ -142,11 +206,13 @@ export const projects = [
     body: [],
     specs: { MCU: "ESP32", Network: "Lightning" },
     links: {},
+    get: [],
     cover: "",
     youtube: "",
   },
   {
     slug: "spray-paint-printer",
+    areas: ["electronics", "interfaces"],
     title: "Spray Paint Printer",
     date: "2020-03",
     status: [STATUS.EXPERIMENT],
@@ -156,6 +222,7 @@ export const projects = [
     body: [],
     specs: { Motion: "CNC", Editor: "React" },
     links: {},
+    get: [],
     cover: "",
     youtube: "",
   },
@@ -186,10 +253,38 @@ export const notes = [
   },
 ];
 
+// The home page hook: the project marked `featured: true`, else the newest.
+export const featuredProject = () => {
+  const list = sortedProjects();
+  return list.find((p) => p.featured) || list[0];
+};
+
+// Cover image, falling back to the YouTube thumbnail when there is a video.
+export const coverOf = (p) =>
+  p.cover || (p.youtube ? `https://i.ytimg.com/vi/${p.youtube}/maxresdefault.jpg` : "");
+
 // Recent videos for the Media section. Add YouTube ids here to embed them.
 export const videos = [
   // { id: "dQw4w9WgXcQ", title: "Whammy Maximizer demo", project: "whammy-maximizer" },
 ];
+
+/*
+ * Where to get a project. Add entries to a project's `get` list:
+ *   { kind: "kit",   where: "Tindie",  url: "https://www.tindie.com/products/...", price: "€49" }
+ *   { kind: "pcb",   where: "OSHWLab", url: "https://oshwlab.com/..." }
+ *   { kind: "pcb",   where: "PCBWay",  url: "https://www.pcbway.com/project/shareproject/..." }
+ *   { kind: "build", where: "Gumroad", url: "...", price: "€9" }
+ * A project with a `repo` link is also listed as free source files.
+ */
+export const GET_KINDS = {
+  kit: "Assembled / kit",
+  pcb: "Bare PCB",
+  build: "Build guide",
+  files: "Source files",
+};
+
+export const isAvailable = (p) => (p.get || []).length > 0;
+export const isOpen = (p) => Boolean(p.links && p.links.repo);
 
 /* ---- helpers ---- */
 
